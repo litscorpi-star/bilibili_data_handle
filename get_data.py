@@ -44,20 +44,20 @@ def writelog(data, filename):
     try:
 
         with open(filename, 'a', encoding='utf-8') as file:
+            print("开始写入数据")
+            print(f"{timestampToTime(int(time.time()))}\n")
             file.write(f"{timestampToTime(int(time.time()))}\n")
             file.write("bvid\ttitle\tview\n")
             for vdata in data:
                 file.write(f"{vdata['bvid']}\t{vdata['title']}\t{vdata['stat']['view']}\n")
 
+            print("数据写入结束")
+
     except Exception as e:
         print(f"Error writing log file: {e}")
 
 
-    # print((timestampToTime(int(time.time())) + "\n"))
-    #
-    # print("bvid\ttitle\tview")
-    # for vdata in data:
-    #     print("{}\t{}\t{}\n".format(vdata["bvid"], vdata["title"], vdata['stat']["view"]))
+    
 
 
 
